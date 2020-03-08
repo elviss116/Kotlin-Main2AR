@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".save_mvvm.SaveMVVMActivity"></activity>
+        <activity android:name=".listar_mvvm.ListarMvvmActivity"></activity>
+        <activity android:name=".save_mvvm.SaveMVVMActivity" />
         <activity android:name=".ListarRetrofit.ListarRActivity" />
         <activity android:name=".Listar.ListarActivity" />
         <activity android:name=".Login.LoginActivity" />

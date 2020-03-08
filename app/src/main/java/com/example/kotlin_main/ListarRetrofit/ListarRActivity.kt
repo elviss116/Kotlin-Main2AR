@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_main.Listar.Adapter.AdapterRCustom
 import com.example.kotlin_main.Listar.ClickListener
 import com.example.kotlin_main.ListarRetrofit.Objeto.UserListResponse
-import com.example.kotlin_main.Login.Api
 import com.example.kotlin_main.Login.model.User
 import com.example.kotlin_main.R
 import retrofit2.Call
@@ -76,6 +75,6 @@ class ListarRActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
             }
         })
-
     }
+
 }

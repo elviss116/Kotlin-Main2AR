@@ -1,6 +1,6 @@
 package com.example.kotlin_main.Listar.Objeto
 
-class Persona(nombre:String, foto:Int){
+class Persona(nombre:String, foto:Int) {
 
     var nombre:String = ""
     var foto:Int = 0
@@ -10,5 +10,5 @@ class Persona(nombre:String, foto:Int){
         this.foto=foto
     }
 
-
 }
+
