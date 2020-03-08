@@ -8,13 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_main.Listar.ClickListener
 import com.example.kotlin_main.Listar.Objeto.Persona
+import com.example.kotlin_main.ListarRetrofit.Objeto.Usuario
 import com.example.kotlin_main.Login.model.User
 import com.example.kotlin_main.R
 import kotlinx.android.synthetic.main.model_listar.view.*
 import kotlinx.android.synthetic.main.model_listar_r.view.*
 
-class AdapterRCustom(items:List<User>, var clickListener: ClickListener): RecyclerView.Adapter<AdapterRCustom.ViewHolderR>() {
-    var items:List<User>? = null
+class AdapterRCustom(items:List<Usuario>, var clickListener: ClickListener): RecyclerView.Adapter<AdapterRCustom.ViewHolderR>() {
+    var items:List<Usuario>? = null
     var viewHolder:ViewHolderR? = null
     init {
         this.items=items

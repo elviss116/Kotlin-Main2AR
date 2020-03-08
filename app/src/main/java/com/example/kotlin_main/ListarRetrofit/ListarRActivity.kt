@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_main.Listar.Adapter.AdapterRCustom
 import com.example.kotlin_main.Listar.ClickListener
+import com.example.kotlin_main.ListarRetrofit.Objeto.UserListResponse
 import com.example.kotlin_main.Login.Api
 import com.example.kotlin_main.Login.model.User
 import com.example.kotlin_main.R
@@ -53,15 +54,18 @@ class ListarRActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     fun cargar(key : String){
 
         var api = ApiInterface.create().getUser(key)
-        api.enqueue( object : Callback<List<User>>{
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+        api.enqueue( object : Callback<UserListResponse>{
+            override fun onFailure(call: Call<UserListResponse>, t: Throwable) {
 
             }
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+            override fun onResponse(call: Call<UserListResponse>, response: Response<UserListResponse>) {
                 if (response?.body() != null )
                     println(response?.body())
-                adaptador = AdapterRCustom(response.body()!!, object: ClickListener{
+                val userR = response.body()!! as UserListResponse
+                //adaptador = AdapterRCustom( UserListResponse(response.body()!!,null))
+                adaptador = AdapterRCustom(userR.record, object: ClickListener{
                     override fun onClick(vista: View, position: Int) {
+
                         return
                     }
 
