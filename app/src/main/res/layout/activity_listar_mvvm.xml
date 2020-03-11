@@ -13,6 +13,14 @@
         android:id="@+id/sv_mvvm"
         ></SearchView>
 
+    <Button
+        android:id="@+id/btn_cargar_mvvm"
+        android:layout_width="match_parent"
+        android:text="cargar"
+        android:layout_height="wrap_content">
+
+    </Button>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,14 +1,5 @@
 package com.example.kotlin_main.listar_mvvm.mObject
-
-class Usuario3 (id:String,password: String){
-
-    var id:String = ""
-    var password:String =""
+import java.io.Serializable
 
 
-    init {
-        this.id=id
-        this.password=password
-    }
-
-}
+data class Usuario3 (var id:String,var password: String):Serializable

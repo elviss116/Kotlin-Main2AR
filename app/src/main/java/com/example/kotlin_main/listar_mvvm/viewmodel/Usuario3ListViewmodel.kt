@@ -1,21 +1,24 @@
 package com.example.kotlin_main.listar_mvvm.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kotlin_main.listar_mvvm.mObject.Usuario3Response
 import com.example.kotlin_main.listar_mvvm.model.Usuario3ListRepository
 
-class Usuario3ListViewmodel : ViewModel() {
+class Usuario3ListViewmodel (var usuarioListRepos: Usuario3ListRepository): ViewModel() {
 
-    val usuarioListRepository = Usuario3ListRepository()
+    //private lateinit var usuarioListRepository: Usuario3ListRepository
     var usuarioResponse = MutableLiveData<Usuario3Response>()
+    //var usuarioListRepos = Usuario3ListRepository()
 
-    fun getRespuesta(): MutableLiveData<Usuario3Response>{
+    fun getRespuesta(): LiveData<Usuario3Response>{
         return usuarioResponse
     }
-
     fun sendData(id:String){
-        usuarioResponse = usuarioListRepository.getData(id)
+        //var usuarioListRepository = Usuario3ListRepository(idk)
+        //usuarioListRepo = Usuario3ListRepository()
+        //usuarioResponse = usuarioListRepos.getData(id,)
+        usuarioListRepos.getData(id,usuarioResponse)
     }
-
 }

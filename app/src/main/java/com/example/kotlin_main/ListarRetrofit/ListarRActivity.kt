@@ -11,6 +11,8 @@ import com.example.kotlin_main.Listar.ClickListener
 import com.example.kotlin_main.ListarRetrofit.Objeto.UserListResponse
 import com.example.kotlin_main.Login.model.User
 import com.example.kotlin_main.R
+import com.example.kotlin_main.listar_mvvm.adapter.mAdapter
+import com.example.kotlin_main.listar_mvvm.mObject.Usuario3Response
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,12 +21,12 @@ class ListarRActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        cargar(query!!)
+        cargar2(query!!)
         return false
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        cargar(newText!!)
+        cargar2(newText!!)
         return false
     }
 
@@ -33,6 +35,7 @@ class ListarRActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     var sv: SearchView? = null
     var layoutManager:RecyclerView.LayoutManager? = null
     var adaptador:AdapterRCustom? = null
+    var adaptador2:mAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +48,7 @@ class ListarRActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         sv!!.setOnQueryTextListener(this)
 
 
-        cargar("")
+        cargar2("")
 
 
     }
@@ -72,6 +75,32 @@ class ListarRActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
                 lista?.layoutManager = layoutManager
                 lista?.adapter = adaptador
+
+            }
+        })
+    }
+
+    fun cargar2(key : String){
+
+        var api = ApiInterface.create().getUserMvvm(key)
+        api.enqueue( object : Callback<Usuario3Response>{
+            override fun onFailure(call: Call<Usuario3Response>, t: Throwable) {
+
+            }
+            override fun onResponse(call: Call<Usuario3Response>, response: Response<Usuario3Response>) {
+                if (response?.body() != null )
+                    println(response?.body())
+                val userR = response.body()!! as Usuario3Response
+                //adaptador = AdapterRCustom( UserListResponse(response.body()!!,null))
+                adaptador2 = mAdapter(userR.record!!, object: ClickListener{
+                    override fun onClick(vista: View, position: Int) {
+                        return
+                    }
+
+                })
+
+                lista?.layoutManager = layoutManager
+                lista?.adapter = adaptador2
 
             }
         })
