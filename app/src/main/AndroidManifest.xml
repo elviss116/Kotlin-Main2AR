@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".listar_mvvm.ListarMvvmActivity"></activity>
+        <activity android:name=".listar_coroutines_edm.ListCoroutinesEDMActivity"></activity>
+        <activity
+            android:name=".listar_coroutines_edm.ListCoroutinesEDActivity"
+            android:label="@string/title_activity_list_coroutines_ed"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".listar_mvvm_crutinas.Listar_CoroutinesActivity" />
+        <activity android:name=".listar_mvvm.ListarMvvmActivity" />
         <activity android:name=".save_mvvm.SaveMVVMActivity" />
         <activity android:name=".ListarRetrofit.ListarRActivity" />
         <activity android:name=".Listar.ListarActivity" />

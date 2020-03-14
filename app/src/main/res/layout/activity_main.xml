@@ -40,4 +40,16 @@
         android:layout_height="wrap_content"
         android:text="LISTAR MVVM"></Button>
 
+    <Button
+        android:id="@+id/btn_listar_mvvm_coroutines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LISTAR COROUTINES"></Button>
+
+    <Button
+        android:id="@+id/btn_listar_mvvm_coroutinesEM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LISTAR COROUTINES EM"></Button>
+
 </LinearLayout>

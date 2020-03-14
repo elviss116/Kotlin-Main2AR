@@ -2,10 +2,14 @@ package com.example.kotlin_main.ListarRetrofit
 
 import com.example.kotlin_main.ListarRetrofit.Objeto.UserListResponse
 import com.example.kotlin_main.Login.model.User
+import com.example.kotlin_main.listar_coroutines_edm.mObject.USuarioC_EResponse
+import com.example.kotlin_main.listar_coroutines_edm.mObject.UsuarioC_E
 import com.example.kotlin_main.listar_mvvm.mObject.Usuario3Response
+import com.example.kotlin_main.listar_mvvm_crutinas.mObject.UsuarioCResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Field
@@ -24,6 +28,16 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("retrofit_listar_1.php")
     fun getUserMvvm(@Field("key") keyword:String) : Call<Usuario3Response>
+
+
+    @FormUrlEncoded
+    @POST("retrofit_listar_1.php")
+    suspend fun getUserCMvvm(
+        @Field("key") keyword:String
+    ) : Response<UsuarioCResponse>
+
+    @GET("retrofit_listar_ce.php")
+    suspend fun listaUsersEdm(): Response<USuarioC_EResponse>
 
 
 

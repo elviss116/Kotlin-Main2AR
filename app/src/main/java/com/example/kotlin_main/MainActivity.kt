@@ -6,7 +6,9 @@ import android.os.Bundle
 import com.example.kotlin_main.Listar.ListarActivity
 import com.example.kotlin_main.ListarRetrofit.ListarRActivity
 import com.example.kotlin_main.Login.LoginActivity
+import com.example.kotlin_main.listar_coroutines_edm.ListCoroutinesEDMActivity
 import com.example.kotlin_main.listar_mvvm.ListarMvvmActivity
+import com.example.kotlin_main.listar_mvvm_crutinas.Listar_CoroutinesActivity
 import com.example.kotlin_main.save_mvvm.SaveMVVMActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,6 +39,16 @@ class MainActivity : AppCompatActivity() {
 
         btn_listar_mvvm.setOnClickListener{
             val intent = Intent(this,ListarMvvmActivity::class.java)
+            startActivity(intent)
+        }
+
+        btn_listar_mvvm_coroutines.setOnClickListener{
+            val intent = Intent(this,Listar_CoroutinesActivity::class.java)
+            startActivity(intent)
+        }
+
+        btn_listar_mvvm_coroutinesEM.setOnClickListener{
+            val intent = Intent(this,ListCoroutinesEDMActivity::class.java)
             startActivity(intent)
         }
 
