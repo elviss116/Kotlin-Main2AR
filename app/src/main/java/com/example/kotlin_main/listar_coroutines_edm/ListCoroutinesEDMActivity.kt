@@ -3,9 +3,11 @@ package com.example.kotlin_main.listar_coroutines_edm
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kotlin_main.Listar.ClickListener
 import com.example.kotlin_main.R
 import com.example.kotlin_main.listar_coroutines_edm.adapter.mAdapter
 import com.example.kotlin_main.listar_coroutines_edm.di.Injection
@@ -28,9 +30,9 @@ class ListCoroutinesEDMActivity : AppCompatActivity() {
     }
 
     private fun configView(){
-        adapter= mAdapter(viewModel.usuarios.value?: emptyList())
+
         rv_listaCoroutiesEdm.layoutManager = LinearLayoutManager(this)
-        rv_listaCoroutiesEdm.adapter=adapter
+       // rv_listaCoroutiesEdm.adapter=adapter
     }
 
     private fun setupViewModel(){
@@ -45,6 +47,12 @@ class ListCoroutinesEDMActivity : AppCompatActivity() {
 
     //observer
     private val renderUsuario = Observer<List<UsuarioC_E>>{
+        adapter = mAdapter(viewModel.usuarios.value?: it, object : ClickListener{
+            override fun onClick(vista: View, position: Int) {
+                Toast.makeText(applicationContext, it?.get(position)?.id,Toast.LENGTH_LONG).show()
+            }
+        })
+        rv_listaCoroutiesEdm.adapter=adapter
         layoutError.visibility=View.GONE
         layoutEmpty.visibility=View.GONE
         adapter.update(it)

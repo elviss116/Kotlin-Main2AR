@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".listar_coroutines_edm.ListCoroutinesEDMActivity"></activity>
+        <activity android:name=".save_mvvm_coroutine.SaveCoroutinesActivity"></activity>
+        <activity android:name=".listar_coroutines_edm.ListCoroutinesEDMActivity" />
         <activity
             android:name=".listar_coroutines_edm.ListCoroutinesEDActivity"
             android:label="@string/title_activity_list_coroutines_ed"

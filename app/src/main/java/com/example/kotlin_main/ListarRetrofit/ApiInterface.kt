@@ -6,6 +6,7 @@ import com.example.kotlin_main.listar_coroutines_edm.mObject.USuarioC_EResponse
 import com.example.kotlin_main.listar_coroutines_edm.mObject.UsuarioC_E
 import com.example.kotlin_main.listar_mvvm.mObject.Usuario3Response
 import com.example.kotlin_main.listar_mvvm_crutinas.mObject.UsuarioCResponse
+import com.example.kotlin_main.save_mvvm_coroutine.mObject.UsuarioCoResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -36,8 +37,17 @@ interface ApiInterface {
         @Field("key") keyword:String
     ) : Response<UsuarioCResponse>
 
+    // FUNCIONES PARA COROUTINES
+
     @GET("retrofit_listar_ce.php")
     suspend fun listaUsersEdm(): Response<USuarioC_EResponse>
+
+    @FormUrlEncoded
+    @POST("retrofit_save_k.php")
+    suspend fun saveUserCoroutines(
+        @Field("id") id:String,
+        @Field("password") password:String
+    ):Response<UsuarioCoResponse>
 
 
 

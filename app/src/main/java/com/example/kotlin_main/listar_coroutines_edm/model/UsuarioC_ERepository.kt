@@ -8,8 +8,8 @@ import com.example.kotlin_main.listar_coroutines_edm.mObject.UsuarioC_E
 class UsuarioC_ERepository:UsuarioCEDataSource {
 
     override suspend fun retrieveUsuarios():OperationResult<UsuarioC_E>{
-        //val response = ApiInterface.create()?.listaUsersEdm()
-        val response = ApiClient3.build()?.usuarioCR()
+        val response = ApiInterface.create()?.listaUsersEdm()
+        //val response = ApiClient3.build()?.usuarioCR()
 
         try {
             response?.let {

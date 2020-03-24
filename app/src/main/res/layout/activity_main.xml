@@ -52,4 +52,10 @@
         android:layout_height="wrap_content"
         android:text="LISTAR COROUTINES EM"></Button>
 
+    <Button
+        android:id="@+id/btn_guardar_mvvmCoroutines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar MVVM COROUTINES"></Button>
+
 </LinearLayout>
